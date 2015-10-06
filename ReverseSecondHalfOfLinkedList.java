@@ -10,13 +10,13 @@ public class ReverseSecondHalfOfLinkedList{
 			return head;
 		}
 		ListNode mid = midOfLinkedList(head);
-		ListNode reverseHead = reverseLinkedList(mid);
-		return reverseHead;
+		reverseLinkedList(mid);
+		return head;
 	}
 
-	public static ListNode reverseLinkedList(ListNode head){
+	public static void reverseLinkedList(ListNode head){
 		if(head == null || head.next == null){
-			return head;
+			return;
 		}
 		ListNode pre = head;
 		ListNode cur = head.next;
@@ -27,7 +27,7 @@ public class ReverseSecondHalfOfLinkedList{
 			cur = temp;
 		}
 		head.next = null;
-		return pre;
+		//return pre;
 	}
 
 	public static ListNode midOfLinkedList(ListNode head){
