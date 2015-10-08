@@ -8,14 +8,14 @@ void findBMstr(string& str){
 	int *p = new int[str.size()+1];
 	// memset(p, 0, sizeof(p));
 
-	int mx = 0;
+	int radius = 0;
 	int pivot = 0;
 
 	for (int i = 1; i < str.size(); i++)
 	{
-		if (i < mx)
+		if (i < radius)
 		{
-			p[i] = (p[pivot-(i-pivot)] < (mx-i) ? p[pivot-(i-pivot)] : (mx-i));
+			p[i] = (p[pivot-(i-pivot)] < (radius-i) ? p[pivot-(i-pivot)] : (radius-i));
 		}
 		else{
 			p[i] = 1;
@@ -25,9 +25,9 @@ void findBMstr(string& str){
 			p[i]++;
 		}
 
-		if (i+p[i] > mx)
+		if (i+p[i] > radius)
 		{
-			mx = i + p[i];
+			radius = i + p[i];
 			pivot = i;
 		}
 	}
