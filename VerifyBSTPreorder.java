@@ -18,9 +18,11 @@ public class VerifyBSTPreorder{
 			if(p<low){
 				return false;
 			}
+			// when occur to a larger node, pop all smaller nodes
 			while(!stack.isEmpty() && p > stack.peek()){
 				low = stack.pop();
 			}
+			// push smaller nodes to stack
 			stack.push(p);
 		}
 		return true;
